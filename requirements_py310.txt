@@ -1,0 +1,15 @@
+pandas==2.0.3
+mysql-connector-python==9.0.0
+python-dotenv==1.0.1
+google-generativeai
+openpyxl==3.1.5
+numpy==1.24.4 # pandas의 핵심 의존성
+cffi==1.17.1 # mysql-connector-python의 의존성
+pycparser==2.22 # cffi의 의존성
+python-dateutil==2.9.0.post0 # pandas의 의존성
+pytz==2025.2 # pandas의 의존성
+tzdata==2025.2 # pandas의 의존성
+certifi==2025.6.15 # 네트워크 통신 관련 공통 의존성
+charset-normalizer==3.4.2 # 네트워크 통신 관련 공통 의존성
+idna==3.10 # 네트워크 통신 관련 공통 의존성
+urllib3==2.2.3 # 네트워크 통신 관련 공통 의존성
