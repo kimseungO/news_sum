@@ -5,6 +5,7 @@ import json
 import pandas as pd
 from datetime import datetime
 import mysql.connector # MySQL 연결을 위한 라이브러리
+import time
 
 # .env 파일 로드
 load_dotenv()
@@ -68,10 +69,10 @@ for cluster_id in cluster_ids:
     if cluster_id == 0:
         continue
     # 시험용으로 cluster_id가 11 이상인 경우 중단 (원하시면 이 조건문 제거)
-    if 11 <= cluster_id:
-        print(f"[{cluster_id}] 클러스터 ID 11 이상이므로 처리 중단.")
-        break
-
+    #if 11 <= cluster_id:
+    #    print(f"[{cluster_id}] 클러스터 ID 11 이상이므로 처리 중단.")
+    #    break
+    time.sleep(3)
     target_df = data[data['cluster2nd'] == cluster_id]
     news_contents = target_df['contents'].dropna().tolist()
 

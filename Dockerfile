@@ -22,6 +22,7 @@ RUN pip install --no-cache-dir -r requirements_py310.txt
 # .env 파일은 보안상 Docker Compose의 environment 섹션을 통해 전달하는 것이 더 안전할 수 있습니다.
 COPY .env .
 COPY AIapi.py .
+COPY db_input.py .
 
 # 데이터 파일이 저장될 디렉토리를 생성합니다.
 # 이 디렉토리는 docker-compose.yml에서 호스트의 'data' 디렉토리와 마운트될 것입니다.
@@ -30,4 +31,4 @@ RUN mkdir -p /app/data
 # 컨테이너가 시작될 때 실행될 기본 명령을 정의합니다.
 # AIapi.py는 news_cluster.py가 생성한 news_preproc.xlsx 파일을 /app/data에서 읽을 것입니다.
 # 이 컨테이너는 docker-compose.yml에서 app_py38 서비스가 성공적으로 완료될 때까지 기다리도록 설정됩니다.
-CMD ["python3", "AIapi.py"]
+CMD ["bash", "-c", "python3 AIapi.py && python3 db_input.py"]
